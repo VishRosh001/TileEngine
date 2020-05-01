@@ -1,9 +1,9 @@
 package com.vishrosh.tileengine.entity;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.vishrosh.resourceloader.ResourceLocation;
 
 public class Entity {
 	
@@ -18,7 +18,11 @@ public class Entity {
 	
 	private Sprite entitySprite;
 	
+	private ResourceLocation resouceLocation;
+	
 	public Entity(String name) {
+		this.setResouceLocation(new ResourceLocation(name));
+		
 		this.setUnlocalisedName(name);
 		
 		this.position = new Vector2(0, 0);
@@ -26,13 +30,11 @@ public class Entity {
 		this.acceleration = new Vector2(0, 0);
 		this.size = new Vector2(16, 16);
 		
-		this.entitySprite = new Sprite();
-		this.entitySprite.setRegion(new Texture("unknown.png"));;
+		this.entitySprite = this.resouceLocation.getTexture();
 	}
 	
-	public void setSpriteTexture(Texture t) {
-		this.entitySprite.getTexture().dispose();
-		this.entitySprite.setRegion(t);
+	public void setSpriteTexture() {
+		this.entitySprite.set(this.entitySprite);
 	}
 	
 	public void setSize(float width, float height) {
@@ -107,5 +109,13 @@ public class Entity {
 	
 	public void destoryEntity() {
 		this.entitySprite.getTexture().dispose();
+	}
+
+	public ResourceLocation getResouceLocation() {
+		return resouceLocation;
+	}
+
+	public void setResouceLocation(ResourceLocation resouceLocation) {
+		this.resouceLocation = resouceLocation;
 	}
 }

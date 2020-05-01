@@ -2,14 +2,12 @@ package com.vishrosh.tileengine.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.Texture;
 
 public class Player extends Entity{
 	
 	public Player() {
-		super("player");
+		super("playere");
 		
-		this.setSpriteTexture(new Texture("player.png"));
 		this.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 	}
 	
