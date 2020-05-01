@@ -12,7 +12,9 @@ public abstract class GameState{
 	
 	public abstract void onLoad();
 	
-	public abstract void update(double deltaTime);
+	public abstract void onResize(int width, int height);
+	
+	public abstract void update(float deltaTime);
 	
 	public abstract void render();
 	

@@ -16,7 +16,12 @@ public class GameStateManager {
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).onLoad();
 	}
 	
-	public void updateCurrentState(double deltaTime) {
+	public void onResize(int width, int height) {
+		if(GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).isLoaded())return;
+		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).onResize(width, height);
+	}
+	
+	public void updateCurrentState(float deltaTime) {
 		if(!GameStateRegistry.getRegistry().getRegisteredGameState(currentState).isLoaded())return;
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).update(deltaTime);
 	}

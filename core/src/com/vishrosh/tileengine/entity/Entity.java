@@ -2,6 +2,7 @@ package com.vishrosh.tileengine.entity;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
 public class Entity {
@@ -92,6 +93,12 @@ public class Entity {
 		this.velocity.add(this.acceleration);
 		this.position.add(this.velocity);
 		this.velocity.limit(0);
+	}
+	
+	public void drawEntity(SpriteBatch batch) {
+		batch.begin();
+		this.getSprite().draw(batch);
+		batch.end();
 	}
 	
 	public void updatePlayerBounds() {
