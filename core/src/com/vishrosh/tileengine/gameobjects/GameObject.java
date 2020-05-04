@@ -1,24 +1,14 @@
-package com.vishrosh.tileengine.tile;
+package com.vishrosh.tileengine.gameobjects;
 
 import com.vishrosh.registry.core.ObjectRegistryEntry;
 
-public class Tile extends ObjectRegistryEntry<Tile>{
+public abstract class GameObject<T> extends ObjectRegistryEntry<T>{
 	
-	int tileID;
+	private String unlocalisedName;
+	private String localisedName;
 	
-	String unlocalisedName;
-	String localisedName;
-	
-	public Tile() {
-		this.setUnlocalisedName(this.getRegistryName().getRegistryName());
-	}
-	
-	public int getTileID() {
-		return this.tileID;
-	}
-	
-	public void setTileID(int id) {
-		this.tileID = id;
+	public GameObject() {
+		//this.setUnlocalisedName(this.getRegistryName().getRegistryName());
 	}
 	
 	public String getUnlocalisedName() {

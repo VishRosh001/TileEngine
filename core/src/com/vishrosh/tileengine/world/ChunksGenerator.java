@@ -5,7 +5,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
+import com.vishrosh.resourceloader.TextureLoader;
+import com.vishrosh.tileengine.tile.Tiles;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;
 
@@ -17,8 +20,13 @@ public class ChunksGenerator {
 	public HashMap<String, Chunk> loadedChunks;
 	public HashMap<String, Chunk> unloadedChunks;
 	
+	public static Texture[] worldGenTiles;
+	
 	public ChunksGenerator(NoiseGenerator noise){
 		this.noise = noise;
+		
+		ChunksGenerator.worldGenTiles = new Texture[4];
+		this.addWorldGenTiles();
 		
 		this.addedChunks = new HashMap<String, Chunk>();
 		this.loadedChunks = new HashMap<String, Chunk>();
@@ -35,6 +43,22 @@ public class ChunksGenerator {
 		this.addChunk(new Vector2(0, 1));
 		this.addChunk(new Vector2(1, 1));
 		this.addChunk(new Vector2(-1, 0));
+	}
+	
+	public void addWorldGenTiles() {
+		
+		/*TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("water").resourceLocation);
+		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("dirt").resourceLocation);
+		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("grass").resourceLocation);
+		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("snow").resourceLocation);
+		
+		System.out.println(Tiles.getTileRegistry().getTileFromRegistryName("water"));
+		ChunksGenerator.worldGenTiles[0] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("water").resourceLocation);
+		ChunksGenerator.worldGenTiles[1] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("dirt").resourceLocation);
+		ChunksGenerator.worldGenTiles[2] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("grass").resourceLocation);
+		ChunksGenerator.worldGenTiles[3] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("snow").resourceLocation);
+		*/
+		System.out.println(ChunksGenerator.worldGenTiles[2].toString());
 	}
 	
 	public void addChunk(Vector2 position) {

@@ -54,13 +54,14 @@ public class Chunk{
 	
 	public void drawChunk(OrthoCamera camera, SpriteBatch batch) {
 		batch.setProjectionMatrix(camera.getCamera().combined);
-		batch.begin();
+		
 		for(int i = 0; (i < Chunk.CHUNK_SIZE*Chunk.CHUNK_SIZE) && isLoaded; i++) {
 			Vector2 coords = new Vector2(MathUtilities.map1DIndexTo2DIndex(i, Chunk.CHUNK_SIZE));
 			coords = this.mapChunkBlocksToWorld(coords);
-			batch.draw(PlayGameState.imgs[this.getTileMap()[i]], coords.x, coords.y);
+			batch.begin();
+			batch.draw(ChunksGenerator.worldGenTiles[this.getTileMap()[i]], coords.x, coords.y);
+			batch.end();
 		}
-		batch.end();
 	}
 	
 	public boolean isLoaded() { 

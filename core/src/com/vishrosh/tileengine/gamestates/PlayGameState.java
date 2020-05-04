@@ -8,11 +8,10 @@ import com.vishrosh.statemachine.core.State;
 import com.vishrosh.tileengine.TileEngine;
 import com.vishrosh.tileengine.entity.Player;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
+import com.vishrosh.tileengine.world.ChunksGenerator;
 import com.vishrosh.tileengine.world.MapGenerator;
 
 public class PlayGameState extends GameState{
-
-	public static Texture[] imgs;
 	MapGenerator map;
 	SpriteBatch batch;
 	OrthoCamera camera;
@@ -38,12 +37,6 @@ public class PlayGameState extends GameState{
 		this.camera = TileEngine.camera;
 		
 		this.map = new MapGenerator();
-		
-		imgs = new Texture[4];
-		imgs[0] = new Texture("water.png");
-		imgs[1] = new Texture("dirt.png");
-		imgs[2] = new Texture("grass.png");
-		imgs[3] = new Texture("snow.png");
 		
 		this.map.loadChunks(batch);
 		this.map.keepOrderr();
@@ -78,9 +71,7 @@ public class PlayGameState extends GameState{
 	public void onExit() {
 		batch.dispose();
 		player.destoryEntity();
-		for(Texture img : imgs) {
-			img.dispose();
-		}
+		for(Texture r: ChunksGenerator.worldGenTiles)r.dispose();
 	}
 	
 	void renderTileMap() {

@@ -1,9 +1,11 @@
 package com.vishrosh.tileengine.entity;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.vishrosh.resourceloader.ResourceLocation;
+import com.vishrosh.resourceloader.TextureLoader;
 
 public class Entity {
 	
@@ -16,12 +18,13 @@ public class Entity {
 	private Vector2 acceleration;
 	private Vector2 size;
 	
-	private Sprite entitySprite;
+	private Texture entitySprite;
 	
 	private ResourceLocation resouceLocation;
 	
 	public Entity(String name) {
 		this.setResouceLocation(new ResourceLocation(name));
+		TextureLoader.loadTexture(this.getResouceLocation());
 		
 		this.setUnlocalisedName(name);
 		
@@ -30,11 +33,11 @@ public class Entity {
 		this.acceleration = new Vector2(0, 0);
 		this.size = new Vector2(16, 16);
 		
-		this.entitySprite = this.resouceLocation.getTexture();
+		this.entitySprite = TextureLoader.getTexture(this.resouceLocation);
 	}
 	
 	public void setSpriteTexture() {
-		this.entitySprite.set(this.entitySprite);
+		//this.entitySprite this.entitySprite);
 	}
 	
 	public void setSize(float width, float height) {
@@ -49,7 +52,7 @@ public class Entity {
 		this.updatePlayerBounds();
 	}
 	
-	public Sprite getSprite() {
+	public Texture getSprite() {
 		return this.entitySprite;
 	}
 	
@@ -99,16 +102,17 @@ public class Entity {
 	
 	public void drawEntity(SpriteBatch batch) {
 		batch.begin();
-		this.getSprite().draw(batch);
+		batch.draw(this.getSprite(), this.position.x, this.position.y, this.size.x, this.size.y);
+		//this.getSprite().draw(batch);
 		batch.end();
 	}
 	
 	public void updatePlayerBounds() {
-		this.entitySprite.setBounds(this.position.x, this.position.y, this.size.x, this.size.y);
+		//this.entitySprite.setBounds(this.position.x, this.position.y, this.size.x, this.size.y);
 	}
 	
 	public void destoryEntity() {
-		this.entitySprite.getTexture().dispose();
+		this.entitySprite.dispose();
 	}
 
 	public ResourceLocation getResouceLocation() {

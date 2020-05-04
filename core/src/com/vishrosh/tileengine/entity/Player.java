@@ -6,13 +6,13 @@ import com.badlogic.gdx.Input;
 public class Player extends Entity{
 	
 	public Player() {
-		super("playere");
+		super("player");
 		
 		this.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 	}
 	
 	public void playerMovement(float deltaTime) {
-		float speed = 2.0f;
+		float speed = 5.0f;
 		
 		if(Gdx.input.isKeyPressed(Input.Keys.W)) {
 			this.getAcceleration().y = speed*deltaTime;

@@ -1,9 +1,9 @@
-package com.vishrosh.resourceloader;
+package com.vishrosh.registry.core;
 
 import java.util.Objects;
 
-public class ResourceLocation{
-	
+public class ResourceLocation {
+		
 	String registryName;
 
 	public ResourceLocation(String registryName) {

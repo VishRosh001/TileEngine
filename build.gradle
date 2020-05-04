@@ -44,7 +44,7 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        
+        implementation("com.google.guava:guava:29.0-jre")
     }
 }
 
@@ -56,6 +56,7 @@ project(":desktop") {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+        implementation("com.google.guava:guava:29.0-jre")
         
     }
 }

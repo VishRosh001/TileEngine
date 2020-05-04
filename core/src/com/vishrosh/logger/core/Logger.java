@@ -36,8 +36,8 @@ public class Logger {
 	private String source = "Unknown";
 	private Level level = Level.INFO;
 	private LocalDateTime date = null;
-	private boolean isDateTimePrinted = true;
-	private boolean isLoggerNamePrinted = true;
+	private boolean isDateTimePrinted = false;
+	private boolean isLoggerNamePrinted = false;
 	
 	public static final String YELLOW = "\u001B[33m";
 	
