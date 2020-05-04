@@ -8,5 +8,8 @@ public enum EventTypes {
 	ValueAt500,
 	ObjectRegistry,
 	TileRegistry,
-	ItemRegistry
+	ItemRegistry,
+	LoadStateLoad,
+	LoadStateRender,
+	LoadStateExit
 }

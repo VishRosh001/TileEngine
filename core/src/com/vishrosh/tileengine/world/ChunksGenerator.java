@@ -58,7 +58,7 @@ public class ChunksGenerator {
 		ChunksGenerator.worldGenTiles[2] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("grass").resourceLocation);
 		ChunksGenerator.worldGenTiles[3] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("snow").resourceLocation);
 		*/
-		System.out.println(ChunksGenerator.worldGenTiles[2].toString());
+		//System.out.println(ChunksGenerator.worldGenTiles[2].toString());
 	}
 	
 	public void addChunk(Vector2 position) {

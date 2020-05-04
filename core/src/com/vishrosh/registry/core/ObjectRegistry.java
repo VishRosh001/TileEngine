@@ -9,19 +9,16 @@ public class ObjectRegistry<T extends IObjectEntry<T>> implements IObjectRegistr
 
 	@Override
 	public void register(T object) {
-		System.out.println("sds");
 		if(object.getRegistryName() == null) {
 			Logger.getLogger(this.getClass()).logMinor("Object Registry", "Registry name has not been set for " + object);
 			return;
 		}
 		this.REGISTRY.register(object.getRegistryName(), object);
-		System.out.println("sds");
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public void registerAll(T ...objects) {
-		System.out.println("sds");
 		for(T object : objects) {
 			this.register(object);
 		}
@@ -29,7 +26,6 @@ public class ObjectRegistry<T extends IObjectEntry<T>> implements IObjectRegistr
 	
 	@Override
 	public T getObjectByRegistryName(String registryName) {
-		System.out.println("regi");
 		return this.REGISTRY.getObjectByRegistryName(registryName);
 	}
 	
