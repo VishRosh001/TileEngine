@@ -10,7 +10,7 @@ public class Tile extends ObjectRegistryEntry<Tile>{
 	String localisedName;
 	
 	public Tile() {
-		this.setUnlocalisedName(this.getRegistryName().getRegistryName());
+		//this.setUnlocalisedName(this.getRegistryName().getRegistryName());
 	}
 	
 	public int getTileID() {

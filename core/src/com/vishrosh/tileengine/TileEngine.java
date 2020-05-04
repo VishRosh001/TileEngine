@@ -4,35 +4,35 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.vishrosh.eventsystem.core.EventBus;
+import com.vishrosh.eventsystem.core.EventBusSubscribers;
 import com.vishrosh.logger.core.Logger;
-import com.vishrosh.registry.core.Registeries;
-import com.vishrosh.resourceloader.ResourceLocation;
+import com.vishrosh.registry.core.Registries;
+import com.vishrosh.registry.events.TileRegistryEvent;
+import com.vishrosh.registry.listeners.TileRegistryEventListener;
 import com.vishrosh.statemachine.core.GameStateManager;
-import com.vishrosh.statemachine.core.GameStateRegistry;
-import com.vishrosh.statemachine.core.State;
+import com.vishrosh.tileengine.tile.Tiles;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
-import com.vishrosh.tileengine.gamestates.PlayGameState;
-import com.vishrosh.tileengine.item.Item;
-import com.vishrosh.tileengine.tile.Tile;
 
 public class TileEngine extends Game {
 	public static SpriteBatch batch;
 	public static  OrthoCamera camera;
 	
 	Logger logger;
-	
 	GameStateManager stateManager;
 	
 	@Override
 	public void create () {
 		
-		Registeries ro = new Registeries();
-		ro.init();
 		
-		Registeries.ITEMS.register(new Item().setRegistryName("twater"));
+		EventBusSubscribers.RegisterToEventBus(new Tiles());
+		EventBus.registerMethodsToEvents();
 		
-		System.out.println(Registeries.ITEMS.getRegistry().getRegistryObjects().size());
-		System.out.println(Registeries.ITEMS.getObjectByRegistryName("twater"));
+		TileRegistryEventListener tileRegistryEvent = new TileRegistryEventListener();
+		
+		tileRegistryEvent.onEvent(new TileRegistryEvent(Registries.getRegistries().TILES));
+
+		System.out.println(Registries.getRegistries().TILES.getRegistry().getRegistryObjects().size());
 		
 		/*GameStateRegistry.getRegistry().registerGameState(new PlayGameState());
 		

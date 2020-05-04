@@ -7,4 +7,5 @@ public interface IObjectRegistry<T extends IObjectEntry<T>>{
 	public void register(T object);
 	public T getObjectByRegistryName(String registryName);
 	public PlainRegistry<T> getRegistry();
+	void registerAll(@SuppressWarnings("unchecked") T ...objects);
 }

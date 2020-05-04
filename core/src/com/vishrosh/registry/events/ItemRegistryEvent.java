@@ -1,16 +1,16 @@
 package com.vishrosh.registry.events;
 
 import com.vishrosh.eventsystem.core.EventTypes;
-import com.vishrosh.registry.core.ObjectRegistry;
+import com.vishrosh.registry.core.CoreRegistry;
 import com.vishrosh.tileengine.item.Item;
 
 public class ItemRegistryEvent extends ObjectRegistryEvent<Item> {
 	
-	public ItemRegistryEvent(ObjectRegistry<Item> itemRegistry) {
+	public ItemRegistryEvent(CoreRegistry<Item> itemRegistry) {
 		super(EventTypes.ItemRegistry, itemRegistry);
 	}
 	
-	public ObjectRegistry<Item> getRegistry() {
+	public CoreRegistry<Item> getRegistry() {
 		return super.getRegistry();
 	}
 
