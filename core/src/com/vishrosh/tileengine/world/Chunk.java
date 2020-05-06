@@ -7,6 +7,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;
+import com.vishrosh.tileengine.world.utils.ChunkUtils;
 
 public class Chunk{
 	public final static int CHUNK_SIZE = 16;
@@ -34,18 +35,9 @@ public class Chunk{
 		isLoaded = true;
 	}
 	
-	private Vector2 chunkPositionToWorld() {
-		Vector2 worldCoords = new Vector2(0, 0);
-		
-		worldCoords.x = 16*Chunk.CHUNK_SIZE*(1+this.position.x) - 8;
-		worldCoords.y = 16*Chunk.CHUNK_SIZE*(1+this.position.y) - 8;
-		
-		return worldCoords;
-	}
-	
 	private Vector2 mapChunkBlocksToWorld(Vector2 coords) {
 		Vector2 worldCoords = new Vector2(0, 0);
-		Vector2 chunkCoords = this.chunkPositionToWorld();
+		Vector2 chunkCoords = ChunkUtils.mapChunkPosToWorldPos(this.position);
 		worldCoords.x = chunkCoords.x + (16* coords.x);
 		worldCoords.y = chunkCoords.y + (16* coords.y);
 		

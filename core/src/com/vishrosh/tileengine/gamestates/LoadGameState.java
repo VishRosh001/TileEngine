@@ -6,12 +6,15 @@ import com.vishrosh.eventsystem.core.EventBus;
 import com.vishrosh.eventsystem.core.EventBusSubscribers;
 import com.vishrosh.logger.core.Logger;
 import com.vishrosh.registry.core.Registries;
+import com.vishrosh.registry.events.EntityRegistryEvent;
 import com.vishrosh.registry.events.TileRegistryEvent;
+import com.vishrosh.registry.listeners.EntityRegistryEventListener;
 import com.vishrosh.registry.listeners.TileRegistryEventListener;
 import com.vishrosh.resourceloader.TextureLoader;
 import com.vishrosh.statemachine.core.GameState;
 import com.vishrosh.statemachine.core.GameStateManager;
 import com.vishrosh.statemachine.core.State;
+import com.vishrosh.tileengine.entity.Entities;
 import com.vishrosh.tileengine.tile.Tiles;
 
 public class LoadGameState extends GameState{
@@ -37,12 +40,15 @@ public class LoadGameState extends GameState{
 		boolean loadingGame = true;
 		
 		EventBusSubscribers.RegisterToEventBus(new Tiles());
+		EventBusSubscribers.RegisterToEventBus(new Entities());
 		EventBus.registerMethodsToEvents();
 		
 		TileRegistryEventListener tileRegistryEvent = new TileRegistryEventListener();
+		EntityRegistryEventListener entityRegistryEvent = new EntityRegistryEventListener(); 
 		
 		//Logger.getLogger(this.getClass()).logInfo("Object Registry", "Registering tiles...");
 		tileRegistryEvent.onEvent(new TileRegistryEvent(Registries.getRegistries().TILES));
+		entityRegistryEvent.onEvent(new EntityRegistryEvent(Registries.getRegistries().ENTITIES));
 		
 		loader.createTextureAtlas();
 		loader.loadTextureAtlas();

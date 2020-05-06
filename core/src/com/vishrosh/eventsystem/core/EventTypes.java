@@ -9,6 +9,7 @@ public enum EventTypes {
 	ObjectRegistry,
 	TileRegistry,
 	ItemRegistry,
+	EntityRegistry,
 	LoadStateLoad,
 	LoadStateRender,
 	LoadStateExit

@@ -5,9 +5,10 @@ import java.util.Optional;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
-import com.vishrosh.tileengine.tile.Tile;
 import com.vishrosh.resourceloader.ResourceLocation;
+import com.vishrosh.tileengine.tile.Tile;
 import com.vishrosh.tileengine.item.Item;
+import com.vishrosh.tileengine.entity.Entity;
 
 public class RegistryManager {
 	
@@ -20,6 +21,7 @@ public class RegistryManager {
 	public static void createRegistries() {
 		RegistryManager.createRegistry(new ResourceLocation("tiles"), new CoreRegistry<Tile>(Tile.class));
 		RegistryManager.createRegistry(new ResourceLocation("items"), new CoreRegistry<Item>(Item.class));
+		RegistryManager.createRegistry(new ResourceLocation("entities"), new CoreRegistry<Entity>(Entity.class));
 	}
 	
 	public static void createRegistry(ResourceLocation resourceLocation, CoreRegistry<? extends ObjectRegistryEntry<?>> clazz) {

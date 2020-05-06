@@ -3,11 +3,10 @@ package com.vishrosh.tileengine.entity;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-
-import com.vishrosh.resourceloader.ResourceLocation;
+import com.vishrosh.registry.core.ObjectRegistryEntry;
 import com.vishrosh.resourceloader.TextureLoader;
 
-public class Entity {
+public class Entity extends ObjectRegistryEntry<Entity>{
 	
 	private int entityID;
 	private String unlocalisedName;
@@ -20,24 +19,17 @@ public class Entity {
 	
 	private Sprite entitySprite;
 	
-	private ResourceLocation resouceLocation;
-	
-	public Entity(String name) {
-		this.setResouceLocation(new ResourceLocation(name));
-		//TextureLoader.getSprite(this.getResouceLocation());
-		
-		this.setUnlocalisedName(name);
-		
+	public Entity() {
 		this.position = new Vector2(0, 0);
 		this.velocity = new Vector2(0, 0);
 		this.acceleration = new Vector2(0, 0);
 		this.size = new Vector2(16, 16);
 		
-		this.entitySprite = TextureLoader.getSprite(this.getResouceLocation());
+		this.entitySprite = TextureLoader.getSprite("null");
 	}
 	
-	public void setSpriteTexture() {
-		//this.entitySprite this.entitySprite);
+	public void setSpriteTexture(Sprite sprite) {
+		this.entitySprite = sprite;
 	}
 	
 	public void setSize(float width, float height) {
@@ -112,13 +104,5 @@ public class Entity {
 	
 	public void destoryEntity() {
 		this.entitySprite.getTexture().dispose();
-	}
-
-	public ResourceLocation getResouceLocation() {
-		return resouceLocation;
-	}
-
-	public void setResouceLocation(ResourceLocation resouceLocation) {
-		this.resouceLocation = resouceLocation;
 	}
 }

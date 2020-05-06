@@ -6,9 +6,11 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import com.vishrosh.logger.core.Logger;
+import com.vishrosh.registry.core.Registries;
 import com.vishrosh.statemachine.core.GameState;
 import com.vishrosh.statemachine.core.State;
 import com.vishrosh.tileengine.TileEngine;
+import com.vishrosh.tileengine.entity.Entity;
 import com.vishrosh.tileengine.entity.Player;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
 import com.vishrosh.tileengine.world.ChunksGenerator;
@@ -23,9 +25,11 @@ public class PlayGameState extends GameState{
 	
 	Logger logger;
 	
+	Entity[] entities;
+	
 	public PlayGameState() {
 		super(State.Play);
-		logger = Logger.getLogger(this.getClass());
+		//logger = Logger.getLogger(this.getClass());
 	}
 	
 	@Override
@@ -44,7 +48,9 @@ public class PlayGameState extends GameState{
 		this.map.loadChunks();
 		this.map.keepOrderr();
 		
-		this.player = new Player();
+		this.entities = Registries.getRegistries().ENTITIES.getRegistry().getObjects().toArray(new Entity[2]);
+		
+		this.player = (Player) this.entities[0];
 		
 		this.setLoaded(true);
 	}
@@ -52,6 +58,7 @@ public class PlayGameState extends GameState{
 	@Override
 	public void update(float deltaTime) {
 		player.playerMovement(deltaTime);
+		
 	}
 
 	@Override
@@ -60,10 +67,11 @@ public class PlayGameState extends GameState{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		this.renderTileMap();
-		this.map.keepOrderr();
 		
 		player.drawEntity(this.batch);
-		
+		this.entities[1].drawEntity(batch);
+		this.map.chunkSystem(player.getPosition());
+		this.map.keepOrderr();
 		camera.setCameraTarget(player.getPosition().x, player.getPosition().y);
 	}
 
@@ -81,6 +89,7 @@ public class PlayGameState extends GameState{
 	
 	void renderTileMap() {
 		this.map.renderChunks(this.camera, this.batch);
+		this.map.keepOrderr();
 	}
 
 }

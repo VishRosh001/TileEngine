@@ -1,5 +1,7 @@
 package com.vishrosh.registry.core;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantLock;
 
 import com.google.common.collect.BiMap;
@@ -18,6 +20,15 @@ public class PlainRegistry<T> {
 	
 	public ResourceLocation[] getRegistryNames() {
 		return (ResourceLocation[]) this.registryObjects.keySet().toArray(new ResourceLocation[this.registryObjects.size()]);
+	}
+	
+	public ArrayList<T> getObjects() {
+		ArrayList<T> values = new ArrayList<>(this.registryObjects.size());
+		Iterator<T> iterator = this.registryObjects.values().iterator();
+		
+		while(iterator.hasNext())values.add(iterator.next());
+		
+		return values;
 	}
 
 	public BiMap<ResourceLocation, T> getRegistryObjects() {

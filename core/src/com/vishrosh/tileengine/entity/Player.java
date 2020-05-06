@@ -6,8 +6,7 @@ import com.badlogic.gdx.Input;
 public class Player extends Entity{
 	
 	public Player() {
-		super("player");
-		
+		super();
 		this.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 	}
 	
