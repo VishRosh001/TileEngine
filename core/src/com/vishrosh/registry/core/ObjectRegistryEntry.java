@@ -1,7 +1,7 @@
 package com.vishrosh.registry.core;
 
-import com.vishrosh.registry.core.ResourceLocation;
 import com.vishrosh.registry.core.IObjectEntry;
+import com.vishrosh.resourceloader.ResourceLocation;
 
 public class ObjectRegistryEntry<T> implements IObjectEntry<T>{
 	

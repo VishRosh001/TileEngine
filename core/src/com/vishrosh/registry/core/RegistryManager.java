@@ -6,6 +6,7 @@ import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
 import com.vishrosh.tileengine.tile.Tile;
+import com.vishrosh.resourceloader.ResourceLocation;
 import com.vishrosh.tileengine.item.Item;
 
 public class RegistryManager {

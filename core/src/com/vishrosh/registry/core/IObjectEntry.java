@@ -1,6 +1,6 @@
 package com.vishrosh.registry.core;
 
-import com.vishrosh.registry.core.ResourceLocation;
+import com.vishrosh.resourceloader.ResourceLocation;
 
 public interface IObjectEntry<T> {
 	

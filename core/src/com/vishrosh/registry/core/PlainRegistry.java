@@ -4,7 +4,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.vishrosh.registry.core.ResourceLocation;
+import com.vishrosh.resourceloader.ResourceLocation;
 
 public class PlainRegistry<T> {
 	
@@ -14,6 +14,10 @@ public class PlainRegistry<T> {
 	public PlainRegistry(){
 		this.registryObjects = HashBiMap.create(50);
 		this.integerMap = new IntegerMap<T>(50);
+	}
+	
+	public ResourceLocation[] getRegistryNames() {
+		return (ResourceLocation[]) this.registryObjects.keySet().toArray(new ResourceLocation[this.registryObjects.size()]);
 	}
 
 	public BiMap<ResourceLocation, T> getRegistryObjects() {

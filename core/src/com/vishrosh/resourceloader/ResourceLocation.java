@@ -2,23 +2,24 @@ package com.vishrosh.resourceloader;
 
 import java.util.Objects;
 
-public class ResourceLocation{
+import com.badlogic.gdx.Gdx;
+
+public class ResourceLocation {
 	
-	String registryName;
+	String simpleRegistryName;
+	String pathRegistryName;
 
 	public ResourceLocation(String registryName) {
-		//this.registryName = registryName;
-		this.registryName = registryName;
+		this.simpleRegistryName = registryName;
 		
 	}
 	
 	public String getTexturePath() {
-		//this.setTexture();
-		return this.registryName + ".png";
+		return "textures/this." + simpleRegistryName + ".png";
 	}
 	
 	public String getRegistryName() {
-		return this.registryName;
+		return this.simpleRegistryName;
 	}
 	
 	@Override

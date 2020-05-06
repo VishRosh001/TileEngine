@@ -24,7 +24,7 @@ public class Entity {
 	
 	public Entity(String name) {
 		this.setResouceLocation(new ResourceLocation(name));
-		TextureLoader.loadTexture(this.getResouceLocation());
+		//TextureLoader.loadTexture(this.getResouceLocation());
 		
 		this.setUnlocalisedName(name);
 		
@@ -33,7 +33,7 @@ public class Entity {
 		this.acceleration = new Vector2(0, 0);
 		this.size = new Vector2(16, 16);
 		
-		this.entitySprite = TextureLoader.getTexture(this.resouceLocation);
+		//this.entitySprite = TextureLoader.getTexture(this.resouceLocation);
 	}
 	
 	public void setSpriteTexture() {

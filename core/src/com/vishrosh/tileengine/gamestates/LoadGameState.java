@@ -8,13 +8,15 @@ import com.vishrosh.logger.core.Logger;
 import com.vishrosh.registry.core.Registries;
 import com.vishrosh.registry.events.TileRegistryEvent;
 import com.vishrosh.registry.listeners.TileRegistryEventListener;
+import com.vishrosh.resourceloader.TextureLoader;
 import com.vishrosh.statemachine.core.GameState;
 import com.vishrosh.statemachine.core.GameStateManager;
 import com.vishrosh.statemachine.core.State;
-import com.vishrosh.tileengine.TileEngine;
 import com.vishrosh.tileengine.tile.Tiles;
 
 public class LoadGameState extends GameState{
+	
+	TextureLoader loader = new TextureLoader();
 
 	public LoadGameState() {
 		super(State.Load);
@@ -42,19 +44,22 @@ public class LoadGameState extends GameState{
 		Logger.getLogger(this.getClass()).logInfo("Object Registry", "Registering tiles...");
 		tileRegistryEvent.onEvent(new TileRegistryEvent(Registries.getRegistries().TILES));
 		
+		loader.createTextureAtlas();
+		loader.loadTextureAtlas();
+		
 		loadingGame = false;
 		
 		if(loadingGame == false) {
-			GameStateManager.getManager().setNextState(State.Play);
-			GameStateManager.getManager().exitCurrentState(true);
+			//GameStateManager.getManager().setNextState(State.Play);
+			GameStateManager.getManager().exitCurrentState(false);
 			return;
 		}
 	}
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//Gdx.gl.glClearColor(1, 0, 0, 1);
+		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 	}
 
 	@Override
@@ -64,7 +69,8 @@ public class LoadGameState extends GameState{
 
 	@Override
 	public void onExit() {
-		
+		System.out.println("Exitingdf");
+		//loader.disposeAtlas();
 	}
 
 }
