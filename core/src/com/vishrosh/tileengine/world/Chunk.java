@@ -1,9 +1,9 @@
 package com.vishrosh.tileengine.world;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;

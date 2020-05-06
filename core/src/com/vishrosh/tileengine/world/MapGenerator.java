@@ -16,7 +16,9 @@ public class MapGenerator {
 	public void loadChunks() {
 		this.chunkGen.setup();
 		this.chunkGen.loadChunk("0.0/0.0");
-		this.chunkGen.loadChunk("0.0/1.0");
+		//this.chunkGen.loadChunk("0.0/1.0");
+		//this.chunkGen.loadChunk("1.0/1.0");
+		this.chunkGen.loadChunk("1.0/0.0");
 	}
 	
 	public void keepOrderr() {

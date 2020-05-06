@@ -4,10 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.vishrosh.logger.core.Logger;
-import com.vishrosh.registry.core.Registries;
 import com.vishrosh.resourceloader.TextureLoader;
 import com.vishrosh.statemachine.core.GameStateManager;
 import com.vishrosh.statemachine.core.GameStateRegistry;
@@ -20,9 +17,9 @@ public class TileEngine extends Game {
 	public static SpriteBatch batch;
 	public static  OrthoCamera camera;
 	
-	//Logger logger;
 	GameStateManager stateManager;
 	FPSLogger loggerFps = new FPSLogger();
+	
 	@Override
 	public void create () {
 		
@@ -30,25 +27,16 @@ public class TileEngine extends Game {
 		GameStateRegistry.getRegistry().registerGameState(new PlayGameState());
 		
 		stateManager = GameStateManager.getManager();
-		
 		stateManager.setCurrentState(State.Load);
 		stateManager.loadCurrentState();
-
-		//System.out.println(Registries.getRegistries().TILES.getRegistry().getRegistryObjects().size());
 		
 		TileEngine.batch = new SpriteBatch();
 		TileEngine.camera = new OrthoCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		
-		//logger = Logger.getLogger(this.getClass());
-		//logger.setIsDateTimePrinted(false);
-		//logger.setIsLoggerNamePrinted(false);
 	}
 	
 	@Override
 	public void resize(int width, int height) {
 		super.resize(width, height);
-		//stateManager.onResize(width, height);
-		//stateManager.loadCurrentState();
 	}
 
 	@Override
@@ -58,22 +46,12 @@ public class TileEngine extends Game {
 		
 		loggerFps.log();
 		
-		//logger.logInfo("FPS", Integer.toString(Gdx.graphics.getFramesPerSecond()));
-		
-		//logger.logInfo("State Manager", ""+stateManager.getCurrentState());
 		stateManager.updateCurrentState(Gdx.graphics.getDeltaTime());
 		stateManager.renderCurrentState();
-		
-		
-		
-		//Sprite s = TextureLoader.getSprite("snow");
 		
 		TileEngine.batch.begin();
 		Gdx.graphics.setTitle(""+Gdx.graphics.getFramesPerSecond());
 		TileEngine.batch.end();
-		
-		
-		//logger.logInfo("Delta Time", Float.toString(Gdx.graphics.getDeltaTime()));
 		
 	}
 	

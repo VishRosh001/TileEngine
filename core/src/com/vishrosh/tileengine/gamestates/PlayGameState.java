@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import com.vishrosh.logger.core.Logger;
 import com.vishrosh.statemachine.core.GameState;
 import com.vishrosh.statemachine.core.State;
@@ -60,7 +61,6 @@ public class PlayGameState extends GameState{
 		
 		this.renderTileMap();
 		this.map.keepOrderr();
-		//logger.logInfo("World Gen", "Genning Tiles");
 		
 		player.drawEntity(this.batch);
 		

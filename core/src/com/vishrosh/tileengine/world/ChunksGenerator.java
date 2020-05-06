@@ -5,11 +5,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
+
 import com.vishrosh.resourceloader.TextureLoader;
-import com.vishrosh.tileengine.tile.Tiles;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;
 
@@ -27,7 +26,7 @@ public class ChunksGenerator {
 		this.noise = noise;
 		
 		ChunksGenerator.worldGenTiles = new Sprite[4];
-		this.addWorldGenTiles();
+		this.addToWorldGenTiles();
 		
 		this.addedChunks = new HashMap<String, Chunk>();
 		this.loadedChunks = new HashMap<String, Chunk>();
@@ -42,11 +41,12 @@ public class ChunksGenerator {
 	public void setup() {
 		this.addChunk(new Vector2(0, 0));
 		this.addChunk(new Vector2(0, 1));
+		this.addChunk(new Vector2(1, 0));
 		this.addChunk(new Vector2(1, 1));
 		this.addChunk(new Vector2(-1, 0));
 	}
 	
-	public void addWorldGenTiles() {
+	public void addToWorldGenTiles() {
 		
 		//System.out.println(Tiles.getTileRegistry().getTileFromRegistryName("water"));
 		ChunksGenerator.worldGenTiles[0] = TextureLoader.getSprite("water");
