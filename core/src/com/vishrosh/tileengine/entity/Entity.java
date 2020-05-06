@@ -18,13 +18,13 @@ public class Entity {
 	private Vector2 acceleration;
 	private Vector2 size;
 	
-	private Texture entitySprite;
+	private Sprite entitySprite;
 	
 	private ResourceLocation resouceLocation;
 	
 	public Entity(String name) {
 		this.setResouceLocation(new ResourceLocation(name));
-		//TextureLoader.loadTexture(this.getResouceLocation());
+		//TextureLoader.getSprite(this.getResouceLocation());
 		
 		this.setUnlocalisedName(name);
 		
@@ -33,7 +33,7 @@ public class Entity {
 		this.acceleration = new Vector2(0, 0);
 		this.size = new Vector2(16, 16);
 		
-		//this.entitySprite = TextureLoader.getTexture(this.resouceLocation);
+		this.entitySprite = TextureLoader.getSprite(this.getResouceLocation());
 	}
 	
 	public void setSpriteTexture() {
@@ -52,7 +52,7 @@ public class Entity {
 		this.updatePlayerBounds();
 	}
 	
-	public Texture getSprite() {
+	public Sprite getSprite() {
 		return this.entitySprite;
 	}
 	
@@ -103,7 +103,6 @@ public class Entity {
 	public void drawEntity(SpriteBatch batch) {
 		batch.begin();
 		batch.draw(this.getSprite(), this.position.x, this.position.y, this.size.x, this.size.y);
-		//this.getSprite().draw(batch);
 		batch.end();
 	}
 	
@@ -112,7 +111,7 @@ public class Entity {
 	}
 	
 	public void destoryEntity() {
-		this.entitySprite.dispose();
+		this.entitySprite.getTexture().dispose();
 	}
 
 	public ResourceLocation getResouceLocation() {

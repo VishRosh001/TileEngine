@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import com.badlogic.gdx.graphics.Texture;
@@ -24,10 +25,14 @@ public class TextureLoader {
 	
 	static TextureAtlas atlas;
 	
+	static HashMap<String, Texture> textureMap;
+	
 	public TextureLoader() {
 		new File("resources/temp").mkdir();
 		new File("resources/temp/textures").mkdir();
 		new File("resources/temp/textures/atlas").mkdir();
+		
+		TextureLoader.textureMap = new HashMap<String, Texture>();
 	}
 	
 	public void closeFiles() {
@@ -44,17 +49,24 @@ public class TextureLoader {
 	}
 	
 	public static Sprite getSprite(String registryName) {
+	//	if(TextureLoader.textureMap.containsKey(registryName))return TextureLoader.textureMap.get(registryName);
+		
+		System.out.println("helo");
+		
 		if(TextureLoader.atlas == null)TextureLoader.loadTextureAtlas();
 		
 		Sprite sprite = TextureLoader.atlas.createSprite(registryName);
 		
-		//TextureLoader.atlas.
+		//Texture texture;
 		
 		if(sprite == null)sprite = new Sprite(new Texture("resources/textures/tiles/unknown.png"));
+		//else texture = sprite.getTexture();
+		
+		//TextureLoader.textureMap.put(registryName, texture);
 		return sprite;
 	}
 	
-	public Sprite getSprite(ResourceLocation resourceLocation) {
+	public static Sprite getSprite(ResourceLocation resourceLocation) {
 		return TextureLoader.getSprite(resourceLocation.getRegistryName());
 	}
 	

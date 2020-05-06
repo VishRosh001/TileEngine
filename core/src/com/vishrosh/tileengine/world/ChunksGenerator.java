@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.vishrosh.resourceloader.TextureLoader;
 import com.vishrosh.tileengine.tile.Tiles;
@@ -20,12 +21,12 @@ public class ChunksGenerator {
 	public HashMap<String, Chunk> loadedChunks;
 	public HashMap<String, Chunk> unloadedChunks;
 	
-	public static Texture[] worldGenTiles;
+	public static Sprite[] worldGenTiles;
 	
 	public ChunksGenerator(NoiseGenerator noise){
 		this.noise = noise;
 		
-		ChunksGenerator.worldGenTiles = new Texture[4];
+		ChunksGenerator.worldGenTiles = new Sprite[4];
 		this.addWorldGenTiles();
 		
 		this.addedChunks = new HashMap<String, Chunk>();
@@ -47,17 +48,11 @@ public class ChunksGenerator {
 	
 	public void addWorldGenTiles() {
 		
-		/*TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("water").resourceLocation);
-		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("dirt").resourceLocation);
-		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("grass").resourceLocation);
-		TextureLoader.loadTexture(Tiles.getTileRegistry().getTileFromRegistryName("snow").resourceLocation);
-		
-		System.out.println(Tiles.getTileRegistry().getTileFromRegistryName("water"));
-		ChunksGenerator.worldGenTiles[0] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("water").resourceLocation);
-		ChunksGenerator.worldGenTiles[1] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("dirt").resourceLocation);
-		ChunksGenerator.worldGenTiles[2] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("grass").resourceLocation);
-		ChunksGenerator.worldGenTiles[3] = TextureLoader.getTexture(Tiles.getTileRegistry().getTileFromRegistryName("snow").resourceLocation);
-		*/
+		//System.out.println(Tiles.getTileRegistry().getTileFromRegistryName("water"));
+		ChunksGenerator.worldGenTiles[0] = TextureLoader.getSprite("water");
+		ChunksGenerator.worldGenTiles[1] = TextureLoader.getSprite("dirt");
+		ChunksGenerator.worldGenTiles[2] = TextureLoader.getSprite("grass");
+		ChunksGenerator.worldGenTiles[3] = TextureLoader.getSprite("snow");
 		//System.out.println(ChunksGenerator.worldGenTiles[2].toString());
 	}
 	

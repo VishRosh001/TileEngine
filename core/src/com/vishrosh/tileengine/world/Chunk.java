@@ -1,8 +1,9 @@
 package com.vishrosh.tileengine.world;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
-import com.vishrosh.tileengine.gamestates.PlayGameState;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;
@@ -52,14 +53,14 @@ public class Chunk{
 		
 	}
 	
-	public void drawChunk(OrthoCamera camera, SpriteBatch batch) {
+	public void drawChunk(OrthoCamera camera, SpriteBatch batch, Sprite[] tiles) {
 		batch.setProjectionMatrix(camera.getCamera().combined);
 		
 		for(int i = 0; (i < Chunk.CHUNK_SIZE*Chunk.CHUNK_SIZE) && isLoaded; i++) {
 			Vector2 coords = new Vector2(MathUtilities.map1DIndexTo2DIndex(i, Chunk.CHUNK_SIZE));
 			coords = this.mapChunkBlocksToWorld(coords);
 			batch.begin();
-			batch.draw(ChunksGenerator.worldGenTiles[this.getTileMap()[i]], coords.x, coords.y);
+			batch.draw(tiles[this.getTileMap()[i]], coords.x, coords.y);
 			batch.end();
 		}
 	}

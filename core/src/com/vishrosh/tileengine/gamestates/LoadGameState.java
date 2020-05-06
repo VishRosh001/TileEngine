@@ -41,7 +41,7 @@ public class LoadGameState extends GameState{
 		
 		TileRegistryEventListener tileRegistryEvent = new TileRegistryEventListener();
 		
-		Logger.getLogger(this.getClass()).logInfo("Object Registry", "Registering tiles...");
+		//Logger.getLogger(this.getClass()).logInfo("Object Registry", "Registering tiles...");
 		tileRegistryEvent.onEvent(new TileRegistryEvent(Registries.getRegistries().TILES));
 		
 		loader.createTextureAtlas();
@@ -50,8 +50,8 @@ public class LoadGameState extends GameState{
 		loadingGame = false;
 		
 		if(loadingGame == false) {
-			//GameStateManager.getManager().setNextState(State.Play);
-			GameStateManager.getManager().exitCurrentState(false);
+			GameStateManager.getManager().setNextState(State.Play);
+			GameStateManager.getManager().exitCurrentState(true);
 			return;
 		}
 	}

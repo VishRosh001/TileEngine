@@ -22,7 +22,7 @@ public class GameStateManager {
 	
 	public void loadCurrentState() {
 		if(GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).isLoaded())return;
-		Logger.getCurrentLogger().logInfo("StateManager", "Loading " + this.currentState);
+		//Logger.getCurrentLogger().logInfo("StateManager", "Loading " + this.getCurrentState());
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).onLoad();
 	}
 	
@@ -33,13 +33,13 @@ public class GameStateManager {
 	
 	public void updateCurrentState(float deltaTime) {
 		if(!GameStateRegistry.getRegistry().getRegisteredGameState(currentState).isLoaded())return;
-		Logger.getCurrentLogger().logInfo("StateManager", "Updating " + this.currentState);
+		//Logger.getCurrentLogger().logInfo("StateManager", "Updating " + this.currentState);
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).update(deltaTime);
 	}
 	
 	public void renderCurrentState() {
 		if(!GameStateRegistry.getRegistry().getRegisteredGameState(currentState).isLoaded())return;
-		Logger.getCurrentLogger().logInfo("StateManager", "Rendering " + this.currentState);
+		//Logger.getCurrentLogger().logInfo("StateManager", "Rendering " + this.currentState);
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).render();
 	}
 	
@@ -48,7 +48,7 @@ public class GameStateManager {
 	}
 	
 	public void exitCurrentState(boolean loadNextState) {
-		Logger.getCurrentLogger().logInfo("StateManager", "Exiting " + this.currentState);
+		//Logger.getCurrentLogger().logInfo("StateManager", "Exiting " + this.currentState);
 		GameStateRegistry.getRegistry().getRegisteredGameState(this.getCurrentState()).onExit();
 		GameStateRegistry.getRegistry().getRegisteredGameState(currentState).setLoaded(false);
 		if(this.nextState != null && loadNextState) {

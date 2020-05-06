@@ -2,7 +2,7 @@ package com.vishrosh.tileengine.gamestates;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.vishrosh.logger.core.Logger;
 import com.vishrosh.statemachine.core.GameState;
@@ -29,8 +29,8 @@ public class PlayGameState extends GameState{
 	
 	@Override
 	public void onResize(int width, int height) {
-		this.map.loadChunks(this.batch);
-		this.map.keepOrderr();
+		//this.map.loadChunks();
+		//this.map.keepOrderr();
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class PlayGameState extends GameState{
 		
 		this.map = new MapGenerator();
 		
-		this.map.loadChunks(batch);
+		this.map.loadChunks();
 		this.map.keepOrderr();
 		
 		this.player = new Player();
@@ -60,7 +60,7 @@ public class PlayGameState extends GameState{
 		
 		this.renderTileMap();
 		this.map.keepOrderr();
-		logger.logInfo("World Gen", "Genning Tiles");
+		//logger.logInfo("World Gen", "Genning Tiles");
 		
 		player.drawEntity(this.batch);
 		
@@ -76,7 +76,7 @@ public class PlayGameState extends GameState{
 	public void onExit() {
 		batch.dispose();
 		player.destoryEntity();
-		for(Texture r: ChunksGenerator.worldGenTiles)r.dispose();
+		for(Sprite r: ChunksGenerator.worldGenTiles)r.getTexture().dispose();
 	}
 	
 	void renderTileMap() {

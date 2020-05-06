@@ -2,6 +2,7 @@ package com.vishrosh.tileengine;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,9 +20,9 @@ public class TileEngine extends Game {
 	public static SpriteBatch batch;
 	public static  OrthoCamera camera;
 	
-	Logger logger;
+	//Logger logger;
 	GameStateManager stateManager;
-	
+	FPSLogger loggerFps = new FPSLogger();
 	@Override
 	public void create () {
 		
@@ -33,12 +34,12 @@ public class TileEngine extends Game {
 		stateManager.setCurrentState(State.Load);
 		stateManager.loadCurrentState();
 
-		System.out.println(Registries.getRegistries().TILES.getRegistry().getRegistryObjects().size());
+		//System.out.println(Registries.getRegistries().TILES.getRegistry().getRegistryObjects().size());
 		
 		TileEngine.batch = new SpriteBatch();
 		TileEngine.camera = new OrthoCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		
-		logger = Logger.getLogger(this.getClass());
+		//logger = Logger.getLogger(this.getClass());
 		//logger.setIsDateTimePrinted(false);
 		//logger.setIsLoggerNamePrinted(false);
 	}
@@ -52,23 +53,27 @@ public class TileEngine extends Game {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		loggerFps.log();
+		
+		//logger.logInfo("FPS", Integer.toString(Gdx.graphics.getFramesPerSecond()));
 		
 		//logger.logInfo("State Manager", ""+stateManager.getCurrentState());
 		stateManager.updateCurrentState(Gdx.graphics.getDeltaTime());
 		stateManager.renderCurrentState();
 		
-		Sprite s = TextureLoader.getSprite("snow");
+		
+		
+		//Sprite s = TextureLoader.getSprite("snow");
 		
 		TileEngine.batch.begin();
-		s.draw(TileEngine.batch);
+		Gdx.graphics.setTitle(""+Gdx.graphics.getFramesPerSecond());
 		TileEngine.batch.end();
 		
-		return;
-		/*
-		logger.logInfo("FPS", Integer.toString(Gdx.graphics.getFramesPerSecond()));
-		logger.logInfo("Delta Time", Float.toString(Gdx.graphics.getDeltaTime()));*/
+		
+		//logger.logInfo("Delta Time", Float.toString(Gdx.graphics.getDeltaTime()));
 		
 	}
 	
