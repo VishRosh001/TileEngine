@@ -37,13 +37,13 @@ public class ChunksGenerator {
 		this.chunks.add(this.loadedChunks);
 		this.chunks.add(this.unloadedChunks);
 	}
-	
+
 	public void setup() {
-		this.addChunk(new Vector2(0, 0));
-		this.addChunk(new Vector2(0, 1));
-		this.addChunk(new Vector2(1, 0));
-		this.addChunk(new Vector2(1, 1));
-		this.addChunk(new Vector2(-1, 0));
+		//this.addChunk(new Vector2(0, 0));
+		//this.addChunk(new Vector2(0, 1));
+		//this.addChunk(new Vector2(1, 0));
+		//this.addChunk(new Vector2(1, 1));
+		//this.addChunk(new Vector2(-1, 0));
 	}
 	
 	public void addToWorldGenTiles() {

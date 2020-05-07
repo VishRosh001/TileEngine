@@ -72,6 +72,7 @@ public class PlayGameState extends GameState{
 		this.entities[1].drawEntity(batch);
 		this.map.chunkSystem(player.getPosition());
 		this.map.keepOrderr();
+		this.map.chunkGen.removeUnloadedChunks();
 		camera.setCameraTarget(player.getPosition().x, player.getPosition().y);
 	}
 
