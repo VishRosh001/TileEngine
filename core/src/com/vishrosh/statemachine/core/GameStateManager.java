@@ -1,7 +1,5 @@
 package com.vishrosh.statemachine.core;
 
-import com.vishrosh.logger.core.Logger;
-
 public class GameStateManager {
 	
 	public static GameStateManager instance;

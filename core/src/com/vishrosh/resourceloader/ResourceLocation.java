@@ -2,8 +2,6 @@ package com.vishrosh.resourceloader;
 
 import java.util.Objects;
 
-import com.badlogic.gdx.Gdx;
-
 public class ResourceLocation {
 	
 	String simpleRegistryName;

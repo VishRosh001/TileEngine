@@ -56,7 +56,7 @@ public class TexturePacker {
 	private final Settings settings;
 	private Packer packer;
 	private final ImageProcessor imageProcessor;
-	private final Array<InputImage> inputImages = new Array();
+	private final Array<InputImage> inputImages = new Array<>();
 	private ProgressListener progress;
 
 	/** @param rootDir See {@link #setRootDir(File)}. */
@@ -402,6 +402,7 @@ public class TexturePacker {
 			page.outputRects.sort();
 			for (Rect rect : page.outputRects) {
 				writeRect(writer, page, rect, rect.name);
+				@SuppressWarnings({ "unchecked", "rawtypes" })
 				Array<Alias> aliases = new Array(rect.aliases.toArray());
 				aliases.sort();
 				for (Alias alias : aliases) {

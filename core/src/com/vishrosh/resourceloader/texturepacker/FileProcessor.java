@@ -38,9 +38,9 @@ public class FileProcessor {
 			return o1.getName().compareTo(o2.getName());
 		}
 	};
-	Array<Pattern> inputRegex = new Array();
+	Array<Pattern> inputRegex = new Array<Pattern>();
 	String outputSuffix;
-	ArrayList<Entry> outputFiles = new ArrayList();
+	ArrayList<Entry> outputFiles = new ArrayList<Entry>();
 	boolean recursive = true;
 	boolean flattenOutput;
 
@@ -129,10 +129,10 @@ public class FileProcessor {
 		if (outputRoot == null) outputRoot = new File("");
 		outputFiles.clear();
 
-		LinkedHashMap<File, ArrayList<Entry>> dirToEntries = new LinkedHashMap();
+		LinkedHashMap<File, ArrayList<Entry>> dirToEntries = new LinkedHashMap<>();
 		process(files, outputRoot, outputRoot, dirToEntries, 0);
 
-		ArrayList<Entry> allEntries = new ArrayList();
+		ArrayList<Entry> allEntries = new ArrayList<Entry>();
 		for (java.util.Map.Entry<File, ArrayList<Entry>> mapEntry : dirToEntries.entrySet()) {
 			ArrayList<Entry> dirEntries = mapEntry.getValue();
 			if (comparator != null) Collections.sort(dirEntries, entryComparator);
@@ -179,7 +179,7 @@ public class FileProcessor {
 			File dir = file.getParentFile();
 			ArrayList<Entry> entries = dirToEntries.get(dir);
 			if (entries == null) {
-				entries = new ArrayList();
+				entries = new ArrayList<>();
 				dirToEntries.put(dir, entries);
 			}
 		}

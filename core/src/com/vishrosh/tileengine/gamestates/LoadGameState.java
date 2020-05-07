@@ -1,10 +1,7 @@
 package com.vishrosh.tileengine.gamestates;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.vishrosh.eventsystem.core.EventBus;
 import com.vishrosh.eventsystem.core.EventBusSubscribers;
-import com.vishrosh.logger.core.Logger;
 import com.vishrosh.registry.core.Registries;
 import com.vishrosh.registry.events.EntityRegistryEvent;
 import com.vishrosh.registry.events.TileRegistryEvent;
@@ -51,7 +48,7 @@ public class LoadGameState extends GameState{
 		entityRegistryEvent.onEvent(new EntityRegistryEvent(Registries.getRegistries().ENTITIES));
 		
 		loader.createTextureAtlas();
-		loader.loadTextureAtlas();
+		TextureLoader.loadTextureAtlas();
 		
 		loadingGame = false;
 		

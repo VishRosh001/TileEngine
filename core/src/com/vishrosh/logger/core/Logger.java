@@ -2,13 +2,10 @@ package com.vishrosh.logger.core;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Formatter;
 
 /**
  * This a class that can be used for logging information to the console
