@@ -37,10 +37,10 @@ public class PlainRegistry<T> {
 
 	public void register(ResourceLocation resource, T object) {
 		ReentrantLock lock = new ReentrantLock();
-		lock.lock();
 		if(this.registryObjects.containsKey(resource)) {
 			return;
 		}
+		lock.lock();
 		this.registryObjects.put(resource, object);
 		this.integerMap.register(object);
 		lock.unlock();

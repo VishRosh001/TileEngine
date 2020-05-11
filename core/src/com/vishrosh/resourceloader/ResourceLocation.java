@@ -25,7 +25,7 @@ public class ResourceLocation {
 		if(resourceLocation == null || resourceLocation.getClass() != this.getClass())return false;
 		if(resourceLocation == this)return true;
 		
-		if(this.getRegistryName() == ((ResourceLocation) resourceLocation).getRegistryName())return true;
+		if(this.getRegistryName().equals(((ResourceLocation) resourceLocation).getRegistryName()))return true;
 		return false;
 	}
 	

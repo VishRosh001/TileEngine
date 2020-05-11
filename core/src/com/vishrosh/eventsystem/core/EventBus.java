@@ -21,12 +21,12 @@ public class EventBus {
 	
 	public static EventSubscriber getOrCreateEventSubscriber(EventTypes eventType, int objectID) {
 		ReentrantLock lock = new ReentrantLock(true);
-		lock.lock();
 		
 		EventSubscriber a = EventBus.getEventSubscriber(eventType);
 		if(a != null) return a;
 		
 		a = new EventSubscriber(objectID);
+		lock.lock();
 		EventBus.getSubscribersMap().put(eventType, a);
 		lock.unlock();
 		

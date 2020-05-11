@@ -1,0 +1,80 @@
+{
+  "fontType": "New Font",
+  "spritePath": "newFont",
+  "numberOfChars": 3,
+  "size": {
+    "x": 128,
+    "y": 128
+  },
+  "characters": [
+    {
+      "representation": "a",
+      "offset": {
+        "x": 1,
+        "y": 2
+      },
+      "size": {
+        "x": 4,
+        "y": 5
+      }
+    },
+
+    {
+      "representation": "b",
+      "offset": {
+        "x": 6,
+        "y": 1
+      },
+      "size": {
+        "x": 4,
+        "y": 6
+      }
+    },
+
+    {
+      "representation": "c",
+      "offset": {
+        "x": 11,
+        "y": 3
+      },
+      "size": {
+        "x": 4,
+        "y": 4
+      }
+    },
+
+    {
+      "representation": "d",
+      "offset": {
+        "x": 16,
+        "y": 1
+      },
+      "size": {
+        "x": 4,
+        "y": 6
+      }
+    },
+    {
+      "representation": "e",
+      "offset": {
+        "x": 21,
+        "y": 1
+      },
+      "size": {
+        "x": 4,
+        "y": 6
+      }
+    },
+    {
+      "representation": "f",
+      "offset": {
+        "x": 26,
+        "y": 1
+      },
+      "size": {
+        "x": 4,
+        "y": 6
+      }
+    }
+  ]
+}

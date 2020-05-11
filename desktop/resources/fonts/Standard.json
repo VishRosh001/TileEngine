@@ -1,0 +1,431 @@
+{
+  "fontType": "Standard",
+  "spritePath": "StandardFont",
+  "numberOfChars": 100,
+  "size": {
+    "x": 256,
+    "y": 128
+  },
+  "characters": [
+    {
+      "representation": "\u25A1",
+      "offset": {
+        "x": 168,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "A",
+      "offset": {
+        "x": 2,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+
+    {
+      "representation": "B",
+      "offset": {
+        "x": 14,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+
+    {
+      "representation": "C",
+      "offset": {
+        "x": 26,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "D",
+      "offset": {
+        "x": 38,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "E",
+      "offset": {
+        "x": 50,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "F",
+      "offset": {
+        "x": 62,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "G",
+      "offset": {
+        "x": 74,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "H",
+      "offset": {
+        "x": 86,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "I",
+      "offset": {
+        "x": 98,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "J",
+      "offset": {
+        "x": 110,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "K",
+      "offset": {
+        "x": 122,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "L",
+      "offset": {
+        "x": 134,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "M",
+      "offset": {
+        "x": 146,
+        "y": 2
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "N",
+      "offset": {
+        "x": 2,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "O",
+      "offset": {
+        "x": 14,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "P",
+      "offset": {
+        "x": 26,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "Q",
+      "offset": {
+        "x": 38,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 16
+      }
+    },
+    {
+      "representation": "R",
+      "offset": {
+        "x": 50,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "S",
+      "offset": {
+        "x": 62,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "T",
+      "offset": {
+        "x": 74,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "U",
+      "offset": {
+        "x": 86,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "V",
+      "offset": {
+        "x": 98,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "W",
+      "offset": {
+        "x": 110,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "X",
+      "offset": {
+        "x": 122,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "Y",
+      "offset": {
+        "x": 134,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "Z",
+      "offset": {
+        "x": 146,
+        "y": 19
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "1",
+      "offset": {
+        "x": 2,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "2",
+      "offset": {
+        "x": 14,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "3",
+      "offset": {
+        "x": 26,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "4",
+      "offset": {
+        "x": 38,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "5",
+      "offset": {
+        "x": 50,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "6",
+      "offset": {
+        "x": 62,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "7",
+      "offset": {
+        "x": 74,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "8",
+      "offset": {
+        "x": 86,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "9",
+      "offset": {
+        "x": 98,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": "0",
+      "offset": {
+        "x": 110,
+        "y": 81
+      },
+      "size": {
+        "x": 10,
+        "y": 14
+      }
+    },
+    {
+      "representation": ":",
+      "offset": {
+        "x": 185,
+        "y": 2
+      },
+      "size": {
+        "x": 2,
+        "y": 14
+      }
+    }
+  ]
+}

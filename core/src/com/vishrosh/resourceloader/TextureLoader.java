@@ -50,9 +50,7 @@ public class TextureLoader {
 	}
 	
 	public static Sprite getSprite(String registryName) {
-	//	if(TextureLoader.textureMap.containsKey(registryName))return TextureLoader.textureMap.get(registryName);
-		
-		System.out.println("helo");
+	//	if(TextureLoader.textureMap.containsKey(registryName))return TextureLoader.textureMap.get(registryName)
 		
 		if(TextureLoader.atlas == null)TextureLoader.loadTextureAtlas();
 		
