@@ -10,6 +10,8 @@ public class DesktopLauncher {
 		config.vSyncEnabled = false;
 		config.foregroundFPS = 0;
 		config.backgroundFPS = 0;
+		config.width = TileEngine.SIZE.x;
+		config.height = TileEngine.SIZE.y;
 		new LwjglApplication(new TileEngine(), config);
 	}
 }

@@ -22,4 +22,10 @@ public class MathUtilities {
 		return ""+v.x+"/"+v.y;
 	}
 	
+	public static double scaleNumToXY(double value, int max, int min, int minScale, int maxScale ) {
+		double a = maxScale - minScale;
+		double b = (value - min) / (max - min);
+		return (a*b)+minScale;
+	}
+	
 }
