@@ -13,4 +13,18 @@ public class UIContainerUtils {
 		temp.y = (int) MathUtilities.scaleNumToXY(pos.y, TileEngine.SIZE.y, 0, containerRect.y, containerRect.y+containerRect.height);
 		return temp;
 	}
+	
+	public static GridPoint2 toWorldSpace(GridPoint2 point, Rectangle containerRect) {
+		GridPoint2 temp = new GridPoint2(0, 0);
+		temp.x = point.x + containerRect.x;
+		temp.y = point.y + containerRect.y;
+		return temp;
+	}
+	
+	public static GridPoint2 toLocalSpace(GridPoint2 point, Rectangle containerRect) {
+		GridPoint2 temp = new GridPoint2(0, 0);
+		temp.x = (point.x - containerRect.x);
+		temp.y = (point.y - containerRect.y);
+		return temp;
+	}
 }

@@ -46,7 +46,7 @@ public class FontRenderer {
 	}
 	
 	public void renderText(String text, int x, int y) {
-		this.getSpriteBatch().begin();
+		//this.getSpriteBatch().begin();
 		
 		int Xoffset = x;
 		for(char c : text.toCharArray()) {
@@ -56,7 +56,7 @@ public class FontRenderer {
 			this.getSpriteBatch().draw(fontTexture, Xoffset, y);
 			Xoffset += fontTexture.getRegionWidth()+2;
 		}
-		this.getSpriteBatch().end();
+		//this.getSpriteBatch().end();
 		
 	}
 	

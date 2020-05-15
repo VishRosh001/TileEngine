@@ -1,24 +1,26 @@
 package com.vishrosh.ui.utils;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.GridPoint2;
+import com.vishrosh.tileengine.TileEngine;
 
 public class Utilities {
 	
-	public static float mapYUp2YDown(float y) {
-		
-		System.out.println(Gdx.graphics.getHeight());
-		
-		y = Gdx.graphics.getHeight() - y;
-		
-		return y;
+	public static GridPoint2 convertY2Down(GridPoint2 coords) {
+		GridPoint2 temp = new GridPoint2(coords);
+		temp.y = TileEngine.SIZE.y - coords.y;
+		return temp;
 	}
 	
-	public static Vector2 mapYUp2YDown(Vector2 coords) {
-		
-		coords.y = Gdx.graphics.getWidth() - coords.y;
-		
-		return coords;
+	public static GridPoint2 getMousePos() {
+		GridPoint2 temp = new GridPoint2();
+		temp.x = Gdx.input.getX();
+		temp.y = Gdx.input.getY();
+		return temp;
+	}
+	
+	public static GridPoint2 mousePosAsYDown() {
+		return Utilities.convertY2Down(getMousePos());
 	}
 	
 	public static boolean mouseOver() {

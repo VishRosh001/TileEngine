@@ -1,8 +1,11 @@
 package com.vishrosh.ui;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.GridPoint2;
 import com.vishrosh.resourceloader.ResourceLocation;
+import com.vishrosh.ui.utils.UIContainerUtils;
+import com.vishrosh.ui.utils.Utilities;
 
 public abstract class UIContainerChild {
 	
@@ -11,6 +14,7 @@ public abstract class UIContainerChild {
 	private GridPoint2 position;
 	private GridPoint2 size;
 	private Sprite texture;
+	private UIContainer parent;
 	
 	private boolean hascustomRender;
 	
@@ -60,6 +64,34 @@ public abstract class UIContainerChild {
 	
 	public boolean getHasCustomRender() {
 		return this.hascustomRender;
+	}
+
+	public UIContainer getParent() {
+		return parent;
+	}
+
+	public void setParent(UIContainer parent) {
+		this.parent = parent;
+	}
+	
+	public boolean isMouseOver() {
+		GridPoint2 mousePos = Utilities.mousePosAsYDown();
+		mousePos = UIContainerUtils.toLocalSpace(mousePos, this.getParent().containerRect);
+		if(mousePos.x >= this.getPosition().x && mousePos.x <= this.getPosition().x+this.getSize().x) {
+			if(mousePos.y >= this.getPosition().y && mousePos.y <= this.getPosition().y+this.getSize().y) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isLeftButtonClickedOn() {
+		if(this.isMouseOver()) {
+			if(Gdx.input.isButtonPressed(0)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

@@ -12,6 +12,10 @@ public class ResourceLocation {
 		
 	}
 	
+	public void setRegistryName(String registryName) {
+		this.simpleRegistryName = registryName;
+	}
+	
 	public String getTexturePath() {
 		return "textures/this." + simpleRegistryName + ".png";
 	}

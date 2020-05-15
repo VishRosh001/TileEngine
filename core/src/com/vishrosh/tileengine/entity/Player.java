@@ -11,7 +11,7 @@ public class Player extends Entity{
 	}
 	
 	public void playerMovement(float deltaTime) {
-		float speed = 5.0f;
+		float speed = 1.0f;
 		
 		if(Gdx.input.isKeyPressed(Input.Keys.W)) {
 			this.getAcceleration().y = speed*deltaTime;
