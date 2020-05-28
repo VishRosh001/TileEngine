@@ -36,6 +36,7 @@ public class ChunksGenerator {
 		this.chunks.add(this.loadedChunks);
 		this.chunks.add(this.unloadedChunks);
 	}
+	
 
 	public void addToWorldGenTiles() {
 		ChunksGenerator.worldGenTiles[0] = TextureLoader.getSprite("water");
