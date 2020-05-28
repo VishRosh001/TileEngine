@@ -21,6 +21,13 @@ public class UIContainerUtils {
 		return temp;
 	}
 	
+	public static GridPoint2 toWorldSpace(int x, int y, Rectangle containerRect) {
+		GridPoint2 temp = new GridPoint2(0, 0);
+		temp.x = x + containerRect.x;
+		temp.y = y + containerRect.y;
+		return temp;
+	}
+	
 	public static GridPoint2 toLocalSpace(GridPoint2 point, Rectangle containerRect) {
 		GridPoint2 temp = new GridPoint2(0, 0);
 		temp.x = (point.x - containerRect.x);

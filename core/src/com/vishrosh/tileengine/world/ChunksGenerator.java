@@ -6,8 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Vector2;
-
+import com.badlogic.gdx.math.GridPoint2;
 import com.vishrosh.resourceloader.TextureLoader;
 import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.utils.noise.NoiseGenerator;
@@ -38,14 +37,6 @@ public class ChunksGenerator {
 		this.chunks.add(this.unloadedChunks);
 	}
 
-	public void setup() {
-		//this.addChunk(new Vector2(0, 0));
-		//this.addChunk(new Vector2(0, 1));
-		//this.addChunk(new Vector2(1, 0));
-		//this.addChunk(new Vector2(1, 1));
-		//this.addChunk(new Vector2(-1, 0));
-	}
-	
 	public void addToWorldGenTiles() {
 		ChunksGenerator.worldGenTiles[0] = TextureLoader.getSprite("water");
 		ChunksGenerator.worldGenTiles[1] = TextureLoader.getSprite("dirt");
@@ -53,9 +44,9 @@ public class ChunksGenerator {
 		ChunksGenerator.worldGenTiles[3] = TextureLoader.getSprite("snow");
 	}
 	
-	public void addChunk(Vector2 position) {
-		this.addedChunks.put(MathUtilities.combineVector2String(position), new Chunk(position, this.noise));
-		System.out.println(MathUtilities.combineVector2String(position));
+	public void addChunk(GridPoint2 position) {
+		this.addedChunks.put(MathUtilities.gridPoint2String(position), new Chunk(position, this.noise));
+		System.out.println(MathUtilities.gridPoint2String(position));
 	}
 	
 	public void loadLoadedChunks() {

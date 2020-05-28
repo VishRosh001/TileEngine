@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import com.vishrosh.logger.core.Logger;
 import com.vishrosh.registry.core.Registries;
 import com.vishrosh.statemachine.core.GameState;
@@ -13,6 +12,7 @@ import com.vishrosh.tileengine.TileEngine;
 import com.vishrosh.tileengine.entity.Entity;
 import com.vishrosh.tileengine.entity.Player;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
+import com.vishrosh.tileengine.utils.maths.MathUtilities;
 import com.vishrosh.tileengine.world.ChunksGenerator;
 import com.vishrosh.tileengine.world.MapGenerator;
 
@@ -63,14 +63,14 @@ public class PlayGameState extends GameState{
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(1, 1, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		this.renderTileMap();
 		
 		player.drawEntity(this.batch);
 		this.entities[1].drawEntity(batch);
-		this.map.chunkSystem(player.getPosition());
+		this.map.chunkManager.loadChunAtPos(MathUtilities.vec2Grid2(player.getPosition()));
 		this.map.keepOrderr();
 		this.map.chunkGen.removeUnloadedChunks();
 		camera.setCameraTarget(player.getPosition().x, player.getPosition().y);

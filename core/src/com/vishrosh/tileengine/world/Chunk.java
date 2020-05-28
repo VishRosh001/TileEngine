@@ -2,6 +2,7 @@ package com.vishrosh.tileengine.world;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.GridPoint2;
 import com.badlogic.gdx.math.Vector2;
 
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
@@ -13,14 +14,14 @@ public class Chunk{
 	public final static int CHUNK_SIZE = 16;
 	
 	public NoiseGenerator noiseGen;
-	public Vector2 position;
+	public GridPoint2 position;
 	
 	public boolean isLoaded;
 	int[] tileMap;
 	
-	public Chunk(Vector2 chunkPos, NoiseGenerator noise) {
+	public Chunk(GridPoint2 position2, NoiseGenerator noise) {
 		this.tileMap = new int[Chunk.CHUNK_SIZE*Chunk.CHUNK_SIZE];
-		this.position = chunkPos;
+		this.position = position2;
 		this.noiseGen = noise;
 		isLoaded = false;
 	}
@@ -37,7 +38,7 @@ public class Chunk{
 	
 	private Vector2 mapChunkBlocksToWorld(Vector2 coords) {
 		Vector2 worldCoords = new Vector2(0, 0);
-		Vector2 chunkCoords = ChunkUtils.mapChunkPosToWorldPos(this.position);
+		GridPoint2 chunkCoords = ChunkUtils.mapChunkPosToWorldPos(this.position);
 		worldCoords.x = chunkCoords.x + (16* coords.x);
 		worldCoords.y = chunkCoords.y + (16* coords.y);
 		

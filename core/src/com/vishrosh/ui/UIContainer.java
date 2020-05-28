@@ -61,6 +61,7 @@ public class UIContainer {
 	
 	public void destroyChildren() {
 		for(UIContainerChild c : this.children) {
+			if(c.getTexture() == null)continue;
 			c.getTexture().getTexture().dispose();
 		}
 	}

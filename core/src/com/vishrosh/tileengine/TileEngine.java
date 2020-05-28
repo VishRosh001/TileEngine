@@ -16,9 +16,7 @@ import com.vishrosh.statemachine.core.State;
 import com.vishrosh.tileengine.gamestates.LoadGameState;
 import com.vishrosh.tileengine.gamestates.PlayGameState;
 import com.vishrosh.tileengine.utils.camera.OrthoCamera;
-import com.vishrosh.ui.Button;
 import com.vishrosh.ui.Label;
-import com.vishrosh.ui.Text;
 import com.vishrosh.ui.UIContainer;
 import com.vishrosh.ui.UIContainerChild;
 import com.vishrosh.ui.UIMatrix;
@@ -33,7 +31,6 @@ public class TileEngine extends Game {
 	
 	UIContainer container;
 	UIContainerChild btn;
-	Label lbl;
 	
 	@Override
 	public void create () {
@@ -43,7 +40,6 @@ public class TileEngine extends Game {
 		UIMatrix.setUIMatrix(TileEngine.batch.getProjectionMatrix().cpy().setToOrtho2D(0, 0, TileEngine.SIZE.x, TileEngine.SIZE.y));
 		
 		FontRenderer fontRenderer = new FontRenderer(TileEngine.batch);
-		Text.setRenderer(fontRenderer);
 		GameStateRegistry.getRegistry().registerGameState(new LoadGameState());
 		GameStateRegistry.getRegistry().registerGameState(new PlayGameState());
 		
@@ -52,15 +48,9 @@ public class TileEngine extends Game {
 		stateManager.loadCurrentState();
 		
 		container = new UIContainer("test", State.Play, new Rectangle(400, 100, 10, 10));
-		btn = new Button("hell");
-		lbl = new Label("tree");
 		Label.setFontRenderer(fontRenderer);
-		lbl.setLabelText("Hello");
-		//container.addToContainer(btn);
-		container.addToContainer(lbl);
 		
 		container.load();
-		
 	}
 	
 	@Override
@@ -73,7 +63,6 @@ public class TileEngine extends Game {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 1, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		stateManager.updateCurrentState(Gdx.graphics.getDeltaTime());
@@ -83,13 +72,7 @@ public class TileEngine extends Game {
 		TileEngine.batch.setProjectionMatrix(UIMatrix.getUIMatrix());
 		
 		container.render();
-		
-		TileEngine.batch.begin();
-		Text.renderText("FPS: " + Gdx.graphics.getFramesPerSecond(), 2, Gdx.graphics.getHeight()-18);
-		String sizeText = "SIZE: " + Gdx.graphics.getWidth() + " X " + Gdx.graphics.getHeight();
-		Text.renderText(sizeText, 2, Gdx.graphics.getHeight()-35);
-		TileEngine.batch.end();
-		
+		renderDebug();
 	}
 	
 	@Override
@@ -97,5 +80,14 @@ public class TileEngine extends Game {
 		TextureLoader.disposeAtlas();
 		container.destroyChildren();
 		//stateManager.exitCurrentState(false);
+	}
+	
+	public void renderDebug() {
+		TileEngine.batch.begin();
+		Label.renderText("FPS: " + Gdx.graphics.getFramesPerSecond(), 2, Gdx.graphics.getHeight()-18);
+		String sizeText = "SIZE: " + Gdx.graphics.getWidth() + " X " + Gdx.graphics.getHeight();
+		Label.renderText(sizeText, 2, Gdx.graphics.getHeight()-35);
+		Label.renderText("DELTA TIME: " + Gdx.graphics.getDeltaTime(), 2, Gdx.graphics.getHeight()-52);
+		TileEngine.batch.end();
 	}
 }

@@ -36,8 +36,11 @@ public class Label extends UIContainerChild{
 	@Override
 	public void render() {
 		GridPoint2 pos = UIContainerUtils.toWorldSpace(this.getPosition(), this.getParent().containerRect);
-		System.out.println("Label Pos: " + pos);
 		Label.renderer.renderText(this.labelText, pos.x, pos.y);
+	}
+	
+	public static void renderText(String text, int x, int y) {
+		Label.renderer.renderText(text, x, y);
 	}
 
 }
